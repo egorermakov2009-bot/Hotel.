@@ -1,14 +1,18 @@
-package controller;
-import annotations.Annotations.*;
-import service.RoomService;
+package com.egor.basic.hotel.controller;
+import com.egor.basic.hotel.annotations.Annotations.*;
+import com.egor.basic.hotel.service.RoomService;
 
 @Controller
 public class RoomController {
 
-    private RoomService roomService = new RoomService();
+    @Autowired
+    private RoomService roomService;
 
     public void addRoom(int number) {
         roomService.addRoom(number);
+    }
+
+    public RoomController() {
     }
 
     public void showRooms() {

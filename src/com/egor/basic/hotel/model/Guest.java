@@ -1,10 +1,14 @@
-package model;
+package com.egor.basic.hotel.model;
 
-public class Guest {
+import java.io.Serializable;
+
+public class Guest implements Serializable {
 
     private int id;
     private String name;
     private int roomNumber;
+
+    public Guest() {}
 
     public Guest(int id, String name, int roomNumber) {
         this.id = id;
@@ -24,6 +28,6 @@ public class Guest {
 
     @Override
     public String toString() {
-        return  id + "," + name + "," + roomNumber;
+        return "Id: " + id + " | name: " + name + " | room: " + roomNumber;
     }
 }

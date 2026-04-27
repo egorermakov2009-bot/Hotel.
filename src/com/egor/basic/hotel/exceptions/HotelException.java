@@ -1,4 +1,4 @@
-package exceptions;
+package com.egor.basic.hotel.exceptions;
 
 public class HotelException extends RuntimeException{
 

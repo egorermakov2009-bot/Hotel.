@@ -1,14 +1,19 @@
-package controller;
+package com.egor.basic.hotel.controller;
 
-import model.Role;
+import com.egor.basic.hotel.annotations.Annotations.*;
+import com.egor.basic.hotel.model.Role;
 
 import java.util.Scanner;
 
+@Controller
 public class DispatcherController {
 
-    private GuestController guestController = new GuestController();
-    private EmployeeController employeeController = new EmployeeController();
-    private RoomController roomController = new RoomController();
+    @Autowired
+    private GuestController guestController;
+    @Autowired
+    private EmployeeController employeeController;
+    @Autowired
+    private RoomController roomController;
 
     private Scanner sc = new Scanner(System.in);
 
@@ -18,9 +23,9 @@ public class DispatcherController {
 
             showMenu();
 
-            int choice = sc.nextInt();
-
             try {
+                int choice = Integer.parseInt(sc.nextLine());
+
                 switch (choice) {
                     case 1 -> addRoom();
 
@@ -36,8 +41,8 @@ public class DispatcherController {
 
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
-            }catch(Exception e){
-                System.out.println("Error: " + e.getMessage());
+            }catch(NumberFormatException e) {
+                System.out.println("Error: Write a number between 1 and 6!");
             }
         }
     }

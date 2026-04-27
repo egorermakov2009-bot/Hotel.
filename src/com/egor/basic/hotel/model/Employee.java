@@ -1,10 +1,14 @@
-package model;
+package com.egor.basic.hotel.model;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 
     private int id;
     private String name;
     private Role role;
+
+    public Employee() {}
 
     public Employee(int id, String name, Role role) {
         this.id = id;
@@ -23,6 +27,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return  id + "," + name + "," + role;
+        return "Id: " + id + " | name: " + name + " | role: " + role;
     }
 }

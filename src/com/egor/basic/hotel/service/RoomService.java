@@ -1,14 +1,15 @@
-package service;
-import annotations.Annotations.*;
-import model.Room;
-import repository.RoomRepository;
+package com.egor.basic.hotel.service;
+import com.egor.basic.hotel.annotations.Annotations.*;
+import com.egor.basic.hotel.model.Room;
+import com.egor.basic.hotel.repository.RoomRepository;
 
 import java.util.List;
 
 @Service
 public class RoomService {
 
-    private RoomRepository repository = new RoomRepository();
+    @Autowired
+    private RoomRepository repository;
 
     public void addRoom(int number) {
         repository.save(new Room(number, false));
@@ -16,6 +17,9 @@ public class RoomService {
 
     public List<Room> getAllRooms() {
         return repository.findAll();
+    }
+
+    public RoomService() {
     }
 
     public Room findFreeRoom() {

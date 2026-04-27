@@ -1,4 +1,4 @@
-package model;
+package com.egor.basic.hotel.model;
 
 public enum Role {
     ADMIN,

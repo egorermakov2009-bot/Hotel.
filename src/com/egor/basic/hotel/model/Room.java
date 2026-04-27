@@ -1,9 +1,13 @@
-package model;
+package com.egor.basic.hotel.model;
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
 
     private int number;
     private boolean occupied;
+
+    public Room() {}
 
     public Room(int number, boolean occupied) {
         this.number = number;
@@ -23,6 +27,6 @@ public class Room {
 
     @Override
     public String toString() {
-        return number + "," + occupied;
+        return "Room " + number + " | occupied= " + occupied;
     }
 }

@@ -1,12 +1,16 @@
-package controller;
+package com.egor.basic.hotel.controller;
 
-import service.GuestService;
-import annotations.Annotations.*;
+import com.egor.basic.hotel.service.GuestService;
+import com.egor.basic.hotel.annotations.Annotations.*;
 
 @Controller
 public class GuestController {
 
-    private GuestService guestService = new GuestService();
+    @Autowired
+    private GuestService guestService;
+
+    public GuestController() {
+    }
 
     public void checkInGuest(String name) {
         guestService.checkIn(name);

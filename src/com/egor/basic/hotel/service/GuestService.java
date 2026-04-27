@@ -1,16 +1,21 @@
-package service;
-import annotations.Annotations.*;
-import model.Guest;
-import model.Room;
-import repository.GuestRepository;
+package com.egor.basic.hotel.service;
+import com.egor.basic.hotel.annotations.Annotations.*;
+import com.egor.basic.hotel.model.Guest;
+import com.egor.basic.hotel.model.Room;
+import com.egor.basic.hotel.repository.GuestRepository;
 
 import java.util.Random;
 
 @Service
 public class GuestService {
 
-    private GuestRepository repository = new GuestRepository();
-    private RoomService roomService = new RoomService();
+    @Autowired
+    private GuestRepository repository;
+    @Autowired
+    private RoomService roomService;
+
+    public GuestService() {
+    }
 
     public void checkIn(String name) {
 

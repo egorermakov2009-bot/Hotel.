@@ -1,15 +1,19 @@
-package service;
-import annotations.Annotations.*;
-import model.Employee;
-import model.Role;
-import repository.EmployeeRepository;
+package com.egor.basic.hotel.service;
+import com.egor.basic.hotel.annotations.Annotations.*;
+import com.egor.basic.hotel.model.Employee;
+import com.egor.basic.hotel.model.Role;
+import com.egor.basic.hotel.repository.EmployeeRepository;
 
 import java.util.List;
 
 @Service
 public class EmployeeService {
 
-    private EmployeeRepository repository = new EmployeeRepository();
+    @Autowired
+    private EmployeeRepository repository;
+
+    public EmployeeService() {
+    }
 
     public void assignRole(int id, Role role) {
 
