@@ -19,6 +19,10 @@ public class RoomService {
         return repository.findAll();
     }
 
+//    public void test() {
+//        System.out.println(repository);
+//    }
+
     public RoomService() {
     }
 

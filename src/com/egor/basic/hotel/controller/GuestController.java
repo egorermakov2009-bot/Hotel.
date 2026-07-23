@@ -22,7 +22,17 @@ public class GuestController {
 
     public void showGuests() {
 
-        guestService.getAll().forEach(System.out::println);
+        System.out.println("\n================ GUESTS ================");
+        System.out.println("+------+---------------+------+");
+        System.out.println("| ID   | Name          | Room |");
+        System.out.println("+------+---------------+------+");
+
+        guestService.getAll().forEach(g -> { System.out.printf("| %-4d | %-13s | %-4d |%n",
+                g.getId(),
+                g.getName(),
+                g.getRoomNumber());});
+
+        System.out.println("+------+---------------+------+");
     }
 
 }

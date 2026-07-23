@@ -2,8 +2,6 @@ package com.egor.basic.hotel.repository;
 
 import com.egor.basic.hotel.annotations.Annotations.*;
 import com.egor.basic.hotel.model.Employee;
-import com.egor.basic.hotel.model.Role;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

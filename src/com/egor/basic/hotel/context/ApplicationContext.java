@@ -93,6 +93,14 @@ public class ApplicationContext {
                     try {
                         field.setAccessible(true);
                         field.set(obj, dependency);
+
+//                 проверка на внедрение зависимостей
+//                        System.out.println(
+//                                "Injected " +
+//                                        dependency.getClass().getSimpleName() +
+//                                        " into " +
+//                                        obj.getClass().getSimpleName());
+
                     }catch (Exception e) {
                         throw new RuntimeException("Error injecting dependency");
                     }
@@ -107,3 +115,4 @@ public class ApplicationContext {
     }
 
 }
+

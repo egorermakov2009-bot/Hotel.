@@ -16,9 +16,17 @@ public class RoomController {
     }
 
     public void showRooms() {
-        roomService.getAllRooms().forEach(r -> { System.out.println("Room: " + r.getNumber()
-                + " | " + (r.isOccupied() ? "Occupied" : "Free"));});
 
+        System.out.println("\n================= ROOMS =================");
+        System.out.println("+--------+--------------+");
+        System.out.println("| Number | Status       |");
+        System.out.println("+--------+--------------+");
+
+        roomService.getAllRooms().forEach(r -> { System.out.printf("| %-6d | %-12s |%n",
+                r.getNumber(),
+                r.isOccupied() ? "OCCUPIED" : "FREE");});
+
+        System.out.println("+--------+--------------+");
     }
 
 }

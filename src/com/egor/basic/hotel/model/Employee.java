@@ -24,6 +24,9 @@ public class Employee implements Serializable {
     public void setRole(Role role) {
         this.role = role;
     }
+    public Role getRole() {
+        return role;
+    }
 
     @Override
     public String toString() {

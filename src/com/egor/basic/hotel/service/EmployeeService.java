@@ -15,16 +15,24 @@ public class EmployeeService {
     public EmployeeService() {
     }
 
-    public void assignRole(int id, Role role) {
+    public void assignRole(int id, Role role, String name) {
+        Employee employee = new Employee(id, name, role);
+        repository.save(employee);
 
-        List<Employee> list = repository.findAll();
+        System.out.println("\n=========================================");
+        System.out.println("      EMPLOYEE HIRED SUCCESSFULLY");
+        System.out.println("=========================================");
+        System.out.println("Name : " + name);
+        System.out.println("ID   : " + id);
+        System.out.println("Role : " + role);
+        System.out.println("\nWelcome to the Hotel Team!");
+        System.out.println("=========================================\n");
+    }
 
-        for(Employee employee : list) {
-            if(employee.getId() == id) {
-                employee.setRole(role);
-            }
-        }
-        repository.saveAll(list);
+    public Iterable<Employee> getAll() {
+
+        System.out.println(repository.findAll().size());
+        return repository.findAll();
     }
 
 }

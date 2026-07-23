@@ -37,12 +37,16 @@ public class DispatcherController {
 
                     case 5 -> assignRole();
 
-                    case 6 -> exit();
+                    case 6 -> showEmployees();
+
+                    case 7 -> showGuests();
+
+                    case 8 -> exit();
 
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
             }catch(NumberFormatException e) {
-                System.out.println("Error: Write a number between 1 and 6!");
+                System.out.println("Error: Write a number between 1 and 7!");
             }
         }
     }
@@ -54,27 +58,33 @@ public class DispatcherController {
         System.out.println("3. Check out guest");
         System.out.println("4. Show rooms");
         System.out.println("5. Assign role");
-        System.out.println("6. Exit");
+        System.out.println("6. Show employees");
+        System.out.println("7. Show guests");
+        System.out.println("8. Exit");
         System.out.print("Enter your choice -> ");
+    }
+
+    private void showEmployees() {
+        employeeController.showEmployee();
     }
 
     private void addRoom() {
         System.out.print("Enter room number: ");
-        int roomNumber = sc.nextInt();
+        int roomNumber = Integer.parseInt(sc.nextLine());
         roomController.addRoom(roomNumber);
         System.out.println("Room added successfully.");
     }
 
     private void checkIn() {
         System.out.print("Enter guest name: ");
-        String name = sc.next();
+        String name = sc.nextLine();
         guestController.checkInGuest(name);
         System.out.println("Guest checked in successfully.");
     }
 
     private void checkOut() {
         System.out.print("Enter room number: ");
-        int roomNumber = sc.nextInt();
+        int roomNumber = Integer.parseInt(sc.nextLine());
         guestController.checkOutGuest(roomNumber);
         System.out.println("Guest checked out successfully.");
     }
@@ -83,15 +93,23 @@ public class DispatcherController {
         roomController.showRooms();
     }
 
+    private void showGuests() {
+        guestController.showGuests();
+    }
+
     private void assignRole() {
 
         System.out.print("Enter employee ID: ");
         int id = sc.nextInt();
+        sc.nextLine();
 
-        System.out.print("Enter role (ADMIN/ MANAGER/ STAFF): )");
-        String role = sc.next();
+        System.out.print("Enter employee Name: ");
+        String name = sc.nextLine();
 
-        employeeController.assignRole(id, Role.valueOf(role));
+        System.out.print("Enter role (ADMIN/ MANAGER/ STAFF): ");
+        String role = sc.nextLine();
+
+        employeeController.assignRole(id, Role.valueOf(role), name);
     }
 
     private void exit() {
