@@ -31,6 +31,14 @@ public class GuestRepository implements Repository<Guest> {
         }
     }
 
+    public void delete(int id) {
+        List<Guest> guests = findAll();
+
+        guests.removeIf(guest -> guest.getId() == id);
+
+        saveAll(guests);
+    }
+
     @Override
     public List<Guest> findAll() {
 
